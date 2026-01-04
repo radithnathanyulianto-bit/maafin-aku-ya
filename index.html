@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maaf dari Radith</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background-color: #ff69b4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Fredoka One', cursive;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .text {
+      font-size: 2.8rem;
+      line-height: 1.4;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      min-height: 150px;
+    }
+
+    .typing {
+      opacity: 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 20px 50px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.5rem;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .next-btn {
+      padding: 18px 60px;
+      font-size: 2.2rem;
+    }
+
+    .no-btn.small1 { transform: scale(0.85); }
+    .no-btn.small2 { transform: scale(0.70); }
+    .no-btn.small3 { transform: scale(0.55); }
+    .no-btn.small4 { transform: scale(0.40); opacity: 0.7; }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @media (max-width: 480px) {
+      .text { font-size: 2.2rem; }
+      button { font-size: 2rem; padding: 16px 40px; }
+      .next-btn { padding: 14px 50px; font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Slide 1 -->
+    <div class="slide active" id="slide1">
+      <div class="content">
+        <div class="text" data-text="from radith"></div>
+      </div>
+      <button class="next-btn" onclick="nextSlide(2)">next</button>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide" id="slide2">
+      <div class="content">
+        <div class="text" data-text="maaff in aku yang kemarin sedikit berubah, dan kita lagi ngebahas itu aku nya becanda. aku bukan bermaksud begitu, kamuu jugaa udaa bacaa seharuss nya kenapaa aku jadi begituu"></div>
+      </div>
+      <button class="next-btn" onclick="nextSlide(3)">next</button>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide" id="slide3">
+      <div class="content">
+        <div class="text" data-text="maaff in akuu yaa, yang udaa begituu ke kamuu.. akuuu gaber maksudd begituu bangettt"></div>
+      </div>
+      <button class="next-btn" onclick="nextSlide(4)">next</button>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide" id="slide4">
+      <div class="content">
+        <div class="text" data-text="kamu mau maafin aku??"></div>
+        <div class="buttons">
+          <button class="no-btn" onclick="nextSlide(5)">ga</button>
+          <button onclick="goToThanks()">ya</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide" id="slide5">
+      <div class="content">
+        <div class="text" data-text="kamu mau maafin aku??"></div>
+        <div class="buttons">
+          <button class="no-btn small1" onclick="nextSlide(6)">ga</button>
+          <button onclick="goToThanks()">ya</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide" id="slide6">
+      <div class="content">
+        <div class="text" data-text="kamu mau maafin aku??"></div>
+        <div class="buttons">
+          <button onclick="goToThanks()">ya</button>
+          <button class="no-btn small2" onclick="nextSlide(7)">ga</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide" id="slide7">
+      <div class="content">
+        <div class="text" data-text="kamu mau maafin aku??"></div>
+        <div class="buttons">
+          <button onclick="goToThanks()">ya</button>
+          <button class="no-btn small3" onclick="nextSlide(8)">ga</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8 - tombol ga dihilangkan -->
+    <div class="slide" id="slide8">
+      <div class="content">
+        <div class="text" data-text="kamu mau maafin aku??"></div>
+        <div class="buttons">
+          <button style="padding: 40px 100px; font-size: 4rem;" onclick="goToThanks()">ya</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide Thanks -->
+    <div class="slide" id="thanks">
+      <div class="content">
+        <div class="text" data-text="makasihh sayaaangg ku cinta ku cantikk ku, emang kamuu cewek yang paling baik di dunia iniiii!!"></div>
+      </div>
+      <button class="next-btn" onclick="nextSlide(10)">next</button>
+    </div>
+
+    <!-- Slide End -->
+    <div class="slide" id="end">
+      <div class="content">
+        <div class="text" data-text="selesai"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Typewriter effect
+    function typeWriter(element, text, speed = 70) {
+      element.innerHTML = '';
+      element.style.opacity = 1;
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+
+    // Jalankan animasi ketik saat slide aktif
+    function showSlide(slideId) {
+      document.querySelector('.slide.active')?.classList.remove('active');
+      const newSlide = document.getElementById(slideId);
+      newSlide.classList.add('active');
+
+      const textElement = newSlide.querySelector('.text');
+      if (textElement) {
+        const fullText = textElement.getAttribute('data-text');
+        textElement.style.opacity = 0;
+        setTimeout(() => typeWriter(textElement, fullText), 300);
+      }
+    }
+
+    function nextSlide(num) {
+      showSlide('slide' + num);
+    }
+
+    function goToThanks() {
+      showSlide('thanks');
+    }
+
+    // Animasi pertama saat halaman dibuka
+    window.onload = () => {
+      const firstText = document.querySelector('.slide.active .text');
+      const text = firstText.getAttribute('data-text');
+      typeWriter(firstText, text);
+    };
+  </script>
+</body>
+</html>
